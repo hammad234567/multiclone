@@ -54,6 +54,12 @@ public class AndroidIdProxy extends ClassInvocationStub {
         protected Object hook(Object who, Method method, Object[] args) throws Throwable {
             try {
                 Slog.d(TAG, "AndroidId: Handling getString call");
+                if (args != null && args.length > 0 && args[0] instanceof String) {
+                    String __ov = top.niunaijun.blackbox.utils.DeviceProfileStore.overrideForSettingKey((String) args[0]);
+                    if (__ov != null) {
+                        return __ov;
+                    }
+                }
                 Object result = method.invoke(who, args);
                 
                 
@@ -108,6 +114,12 @@ public class AndroidIdProxy extends ClassInvocationStub {
         protected Object hook(Object who, Method method, Object[] args) throws Throwable {
             try {
                 Slog.d(TAG, "AndroidId: Handling get call");
+                if (args != null && args.length > 0 && args[0] instanceof String) {
+                    String __ov = top.niunaijun.blackbox.utils.DeviceProfileStore.overrideForSettingKey((String) args[0]);
+                    if (__ov != null) {
+                        return __ov;
+                    }
+                }
                 Object result = method.invoke(who, args);
                 
                 
@@ -135,6 +147,12 @@ public class AndroidIdProxy extends ClassInvocationStub {
         protected Object hook(Object who, Method method, Object[] args) throws Throwable {
             try {
                 Slog.d(TAG, "AndroidId: Handling read call");
+                if (args != null && args.length > 0 && args[0] instanceof String) {
+                    String __ov = top.niunaijun.blackbox.utils.DeviceProfileStore.overrideForSettingKey((String) args[0]);
+                    if (__ov != null) {
+                        return __ov;
+                    }
+                }
                 Object result = method.invoke(who, args);
                 
                 

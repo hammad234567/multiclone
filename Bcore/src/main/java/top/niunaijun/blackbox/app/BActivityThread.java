@@ -363,6 +363,11 @@ public class BActivityThread extends IBActivityThread.Stub {
         } catch (Throwable ignored) {
         }
 
+        try {
+            top.niunaijun.blackbox.utils.DeviceProfileStore.applyBuild(packageName, BActivityThread.getUserId());
+        } catch (Throwable ignored) {
+        }
+
         PackageInfo packageInfo = BlackBoxCore.getBPackageManager().getPackageInfo(packageName, PackageManager.GET_PROVIDERS, BActivityThread.getUserId());
         ApplicationInfo applicationInfo = packageInfo.applicationInfo;
         if (packageInfo.providers == null) {

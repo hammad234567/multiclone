@@ -359,6 +359,17 @@ class AppsFragment : Fragment() {
                                     R.id.app_shortcut -> {
                                         ShortcutUtil.createShortcut(requireContext(), userID, data)
                                     }
+
+                                    R.id.app_device -> {
+                                        val i = android.content.Intent(
+                                            requireContext(),
+                                            top.niunaijun.blackboxa.view.device.DeviceSettingsActivity::class.java
+                                        )
+                                        i.putExtra("pkg", data.packageName)
+                                        i.putExtra("userId", userID)
+                                        i.putExtra("name", data.name)
+                                        startActivity(i)
+                                    }
                                 }
                                 return@setOnMenuItemClickListener true
                             } catch (e: Exception) {
